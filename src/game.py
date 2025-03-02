@@ -1,7 +1,7 @@
 from .grid import Grid
 from .player import Player
-from .pickups import pickups
-from enemy import Enemy
+from . import pickups
+from .enemy import Enemy
 import random
 
 player = Player(18, 6)
@@ -12,10 +12,12 @@ move_counter = 0
 bomb = None
 collected_chests =0
 enemies = [Enemy(5,5), Enemy (30,2)]
+
 g = Grid()
 g.set_player(player)
 g.make_walls()
-initial_items = pickups.randomize(g, num_keys =1)  #placera alla föremål
+
+initial_items = pickups.randomize(g, num_keys=1)  #placera alla föremål
 
 
 def print_status():
@@ -25,7 +27,7 @@ def print_status():
 command = "a"
 # Loopa tills användaren trycker Q eller X.
 while not command.casefold() in ["q", "x"]:
-    print_status(g)
+    print_status()
     move_counter +=1
 
     # Hantera automatiskt genererade händelser

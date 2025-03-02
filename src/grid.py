@@ -30,12 +30,12 @@ class Grid:
         """Ta bort item från position"""
         self.set(x, y, self.empty)
 
-    def __str__(self):
+    def __str__(self, enemies=None):
         """Gör så att vi kan skriva ut spelplanen med print(grid)"""
         xs = ""
-        for y in range(len(self.data)):
+        for y in range(self.height):
             row = self.data[y]
-            for x in range(len(row)):
+            for x in range(self.width):
                 if x == self.player.pos_x and y == self.player.pos_y:
                     xs += "@"
                 else:
